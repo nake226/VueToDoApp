@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Vue App</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body style="text-align: left; margin: 5% auto 0 5%;">
+    <!--
+        メモ
+        :{{ scriptが使える }}
+        :v-model / v-forを「ディレクティブ」と呼ぶ
+    -->
+    <h1 class="appName">My Todos</h1>
+    <div id="name">
+        <p>My name is {{ name.toUpperCase() }}.</p>
+        <p><input type="text" v-model="name" placeholder="What's your name?"></p>
+    </div>
+
+    <div id="app">
+        <ul>
+            <!--
+            <li>{{ todos[0] }}</li>
+            <li>{{ todos[1] }}</li>
+            <li>{{ todos[2] }}</li>
+            -->
+            <li v-for="todo in todos">{{ todo }}</li>
+        </ul>
+        <form>
+            <input type="text">
+            <input type="submit" value="Add task">
+        </form>
+    </div>
+    <!-- Vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
