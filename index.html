@@ -23,7 +23,7 @@
         <!-- タスク -->
         <ul>
             <li v-for="(todo, index) in todos">
-                {{ todo }}
+                {{ todo.name }}
                 <span @click="deleteTask" class="btn_delete">[×]</span>
             </li>
         </ul>

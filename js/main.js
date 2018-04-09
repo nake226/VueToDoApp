@@ -11,15 +11,28 @@
             name: "",
             task: "",
             todos: [
-                'task 1',
-                'task 2',
-                'task 3'
+                {
+                    name: 'task 1',
+                    is_done: false,
+                },
+                {
+                    name: 'task 2',
+                    is_done: false,
+                },
+                {
+                    name: 'task 3',
+                    is_done: true,
+                },
             ]
         },
         // 関数
         methods: {
             addTask: function(){
-                this.todos.push(this.task); 
+                var newTask = {
+                    name: this.task,
+                    is_done: false
+                }
+                this.todos.push(newTask); 
                 // todoの追加後に入力欄を空にする
                 this.task = "";
             },
