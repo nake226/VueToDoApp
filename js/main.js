@@ -14,7 +14,9 @@
     });
 
     var app_vm = new Vue({
+        // 結合する要素
         el: '#app',
+        // データ
         data: {
             task: "",
             todos: [
@@ -23,9 +25,11 @@
                 'task 3'
             ]
         },
+        // 関数
         methods: {
             addTask: function(){
                 this.todos.push(this.task); 
+                // todoの追加後に入力欄を空にする
                 this.task = "";
             }
         }
