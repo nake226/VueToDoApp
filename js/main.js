@@ -3,21 +3,12 @@
  */
 (function(){
     'use strict';
-    // UIに結びつくデータの設定
-    var vm = new Vue({
-        // 結合するUI
-        el: '#name',
-        // バインドする情報
-        data: {
-            name: ''
-        }
-    });
-
     var app_vm = new Vue({
         // 結合する要素
         el: '#app',
         // データ
         data: {
+            name: "",
             task: "",
             todos: [
                 'task 1',
@@ -31,6 +22,11 @@
                 this.todos.push(this.task); 
                 // todoの追加後に入力欄を空にする
                 this.task = "";
+            },
+            deleteTask: function(index){
+                if(confirm("you done?")) {
+                    this.todos.splice(index, 1);
+                }
             }
         }
     });

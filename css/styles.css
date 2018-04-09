@@ -21,3 +21,8 @@ body {
 #app input[type="text"] {
     padding: 2px;
 }
+#app .btn_delete {
+    font-size: 12px;
+    cursor: pointer;
+    color: #08c;
+}
