@@ -12,6 +12,8 @@
         メモ
         :{{ scriptが使える }}
         :v-model / v-forを「ディレクティブ」と呼ぶ
+         :checkboxはv-modelの値がtrueならcheckedになる
+         :<hoge v-bind:class="{fuga is_hego}></hoge>"
     -->
     <div id="app" class="container">
         <h1 class="appName">My Todos</h1>
@@ -23,7 +25,8 @@
         <!-- タスク -->
         <ul>
             <li v-for="(todo, index) in todos">
-                {{ todo.name }}
+                <input type="checkbox" v-model="todo.is_done">
+                <span :class="{done: todo.is_done}">{{ todo.name }}</span>
                 <span @click="deleteTask" class="btn_delete">[×]</span>
             </li>
         </ul>
