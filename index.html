@@ -23,12 +23,17 @@
             <p><input type="text" v-model="name" placeholder="What's your name?"></p>
         </div>
         <!-- タスク -->
-        <ul>
+        <ul v-if="todos.length">
             <li v-for="(todo, index) in todos">
                 <input type="checkbox" v-model="todo.is_done">
+                <!-- <span v-bind:class="{done: todo.is_done}">{{ todo.name }}</span> -->
                 <span :class="{done: todo.is_done}">{{ todo.name }}</span>
-                <span @click="deleteTask" class="btn_delete">[×]</span>
+                <!-- <span v-on:click="deleteTask(index)" class="btn_delete">[×]</span> -->
+                <span @click="deleteTask(index)" class="btn_delete">[×]</span>
             </li>
+        </ul>
+        <ul v-else>
+            <li>you have nothing to do!!</li>
         </ul>
         <form @submit.prevent="addTask">
             <input type="text" v-model="task">

@@ -17,10 +17,6 @@
                 },
                 {
                     name: 'task 2',
-                    is_done: false,
-                },
-                {
-                    name: 'task 3',
                     is_done: true,
                 },
             ]
