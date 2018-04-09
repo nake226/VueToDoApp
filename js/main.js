@@ -16,11 +16,18 @@
     var app_vm = new Vue({
         el: '#app',
         data: {
+            task: "",
             todos: [
                 'task 1',
                 'task 2',
                 'task 3'
             ]
+        },
+        methods: {
+            addTask: function(){
+                this.todos.push(this.task); 
+                this.task = "";
+            }
         }
     });
 })();

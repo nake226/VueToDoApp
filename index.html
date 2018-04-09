@@ -7,30 +7,25 @@
     <title>My Vue App</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body style="text-align: left; margin: 5% auto 0 5%;">
+<body style="margin: 5% auto 0">
     <!--
         メモ
         :{{ scriptが使える }}
         :v-model / v-forを「ディレクティブ」と呼ぶ
     -->
-    <h1 class="appName">My Todos</h1>
-    <div id="name">
-        <p>My name is {{ name.toUpperCase() }}.</p>
-        <p><input type="text" v-model="name" placeholder="What's your name?"></p>
-    </div>
-
-    <div id="app">
+    <div id="app" class="container">
+        <h1 class="appName">My Todos</h1>
+        <!-- 名前 -->
+        <div id="name">
+            <p>My name is {{ name.toUpperCase() }}.</p>
+            <p><input type="text" v-model="name" placeholder="What's your name?"></p>
+        </div>
         <ul>
-            <!--
-            <li>{{ todos[0] }}</li>
-            <li>{{ todos[1] }}</li>
-            <li>{{ todos[2] }}</li>
-            -->
             <li v-for="todo in todos">{{ todo }}</li>
         </ul>
-        <form>
-            <input type="text">
-            <input type="submit" value="Add task">
+        <form @submit.prevent="addTask">
+            <input type="text" v-model="task">
+            <input type="submit" value="Add">
         </form>
     </div>
     <!-- Vue.js -->
