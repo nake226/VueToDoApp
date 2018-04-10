@@ -29,6 +29,29 @@
                 },
             ]
         },
+        // 監視
+        watch: {
+            /**
+             * @name todos
+             * タスクの増減のみを監視する
+             */
+            /*
+            todos: function(){
+                localStorage.setItem('todos', JSON.stringify(this.todos));
+                alert("Data saved!");
+            }
+            */
+            /**
+             * @name todos
+             * タスクの内部（プロパティ / 値）も監視する
+             */
+            todos: {
+                handler: function(){
+                    localStorage.setItem('todos', JSON.stringify(this.todos));
+                },
+                deep: true
+            }
+        },
         // 関数
         methods: {
             // タスク追加
