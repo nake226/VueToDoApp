@@ -14,6 +14,7 @@
         :v-model / v-forを「ディレクティブ」と呼ぶ
          :checkboxはv-modelの値がtrueならcheckedになる
          :<hoge v-bind:class="{fuga is_hego}></hoge>"
+         :「v-on:」は「@」として書くことができる
     -->
     <div id="app" class="container">
         <h1 class="appName">My Todos</h1>
@@ -23,17 +24,25 @@
             <p><input type="text" v-model="name" placeholder="What's your name?"></p>
         </div>
         <!-- タスク -->
+        <!-- 条件分岐を使った方法
         <ul v-if="todos.length">
             <li v-for="(todo, index) in todos">
                 <input type="checkbox" v-model="todo.is_done">
-                <!-- <span v-bind:class="{done: todo.is_done}">{{ todo.name }}</span> -->
                 <span :class="{done: todo.is_done}">{{ todo.name }}</span>
-                <!-- <span v-on:click="deleteTask(index)" class="btn_delete">[×]</span> -->
                 <span @click="deleteTask(index)" class="btn_delete">[×]</span>
             </li>
         </ul>
         <ul v-else>
             <li>you have nothing to do!!</li>
+        </ul>
+        -->
+        <ul>
+            <li v-show="!todos.length">you have nothing to do!!</li>
+            <li v-for="(todo, index) in todos">
+                <input type="checkbox" v-model="todo.is_done">
+                <span :class="{done: todo.is_done}">{{ todo.name }}</span>
+                <span @click="deleteTask(index)" class="btn_delete">[×]</span>
+            </li>
         </ul>
         <form @submit.prevent="addTask">
             <input type="text" v-model="task">
