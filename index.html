@@ -18,8 +18,9 @@
     -->
     <div id="app" class="container">
         <h1 class="appName">
+            <button @click="purge">完了タスクを削除</button>
             My Todos
-            <span class="numOfTask">（{{ remaining }}/{{ todos.length }}）</span>
+            <span class="numOfTask">（{{ remaining.length }}/{{ todos.length }}）</span>
         </h1>
         <!-- 名前 -->
         <div class="name_block">

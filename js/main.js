@@ -19,6 +19,14 @@
                     name: 'task 2',
                     is_done: true,
                 },
+                {
+                    name: 'task 3',
+                    is_done: false,
+                },
+                {
+                    name: 'task 4',
+                    is_done: true,
+                },
             ]
         },
         // 関数
@@ -36,15 +44,24 @@
                 if(confirm("you done?")){
                     this.todos.splice(index, 1);
                 }
+            },
+            purge: function(){
+                if(!confirm('delete finished task?')){
+                    return;
+                }
+                this.todos = this.remaining;
             }
         },
         // 算出プロパティ
         computed: {
+            /**
+             * @todo
+             * 残タスクのゲッター
+             */
             remaining: function(){
-                var remainingTask = this.todos.filter(function(todo){
+                return this.todos.filter(function(todo){
                     return !todo.is_done;
                 });
-                return remainingTask.length;
             }
         }
     });
