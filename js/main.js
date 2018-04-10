@@ -3,31 +3,14 @@
  */
 (function(){
     'use strict';
-    var app_vm = new Vue({
+    var vm = new Vue({
         // 結合する要素
         el: '#app',
         // データ
         data: {
             name: "",
             task: "",
-            todos: [
-                {
-                    name: 'task 1',
-                    is_done: false,
-                },
-                {
-                    name: 'task 2',
-                    is_done: true,
-                },
-                {
-                    name: 'task 3',
-                    is_done: false,
-                },
-                {
-                    name: 'task 4',
-                    is_done: true,
-                },
-            ]
+            todos: []
         },
         // 監視
         watch: {
@@ -51,6 +34,10 @@
                 },
                 deep: true
             }
+        },
+        // ライフサイクルフック
+        mounted: function(){
+            this.todos = JSON.parse(localStorage.getItem('todos')) || [];
         },
         // 関数
         methods: {
