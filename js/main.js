@@ -31,6 +31,7 @@
         },
         // 関数
         methods: {
+            // タスク追加
             addTask: function(){
                 var newTask = {
                     name: this.task,
@@ -40,11 +41,13 @@
                 // todoの追加後に入力欄を空にする
                 this.task = "";
             },
+            // タスク削除
             deleteTask: function(index){
                 if(confirm("you done?")){
                     this.todos.splice(index, 1);
                 }
             },
+            // 処理済みタスクの削除
             purge: function(){
                 if(!confirm('delete finished task?')){
                     return;
@@ -55,8 +58,8 @@
         // 算出プロパティ
         computed: {
             /**
-             * @todo
-             * 残タスクのゲッター
+             * @name remaining
+             * @returns 残りのタスク
              */
             remaining: function(){
                 return this.todos.filter(function(todo){
