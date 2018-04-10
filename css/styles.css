@@ -15,6 +15,10 @@ body {
 #app #name {
     margin-bottom: 30px;
 }
+#app .numOfTask {
+    color: #bbb;
+    font-size: 12px;
+}
 #app ul {
     padding: 0;
     list-style: none;

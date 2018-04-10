@@ -17,7 +17,10 @@
          :「v-on:」は「@」として書くことができる
     -->
     <div id="app" class="container">
-        <h1 class="appName">My Todos</h1>
+        <h1 class="appName">
+            My Todos
+            <span class="numOfTask">（{{ remaining }}/{{ todos.length }}）</span>
+        </h1>
         <!-- 名前 -->
         <div class="name_block">
             <p class="name">My name is {{ name.toUpperCase() }}.</p>

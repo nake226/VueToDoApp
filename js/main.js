@@ -33,9 +33,18 @@
                 this.task = "";
             },
             deleteTask: function(index){
-                if(confirm("you done?")) {
+                if(confirm("you done?")){
                     this.todos.splice(index, 1);
                 }
+            }
+        },
+        // 算出プロパティ
+        computed: {
+            remaining: function(){
+                var remainingTask = this.todos.filter(function(todo){
+                    return !todo.is_done;
+                });
+                return remainingTask.length;
             }
         }
     });
