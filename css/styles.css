@@ -70,8 +70,8 @@ body {
     border-radius: 3px;
     content: "";
     display: inline-block;
-    height: 17px;
-    width: 17px;
+    height: 15px;
+    width: 15px;
     position: absolute;
     top: 2px;
     bottom: 0;
@@ -89,9 +89,9 @@ body {
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
     position: absolute;
-    top: 3px;
-    height: 10px;
-    width: 5px;
+    top: 4px;
+    height: 9px;
+    width: 4px;
     left: 7px;
 }
 #app .btn_block {
