@@ -1,16 +1,20 @@
 body {
     font-size: 16px;
     font-family: Verdana, sans-serif;
+    margin: 5% auto 0;
   }
 .container {
-    width: 300px;
+    box-sizing: border-box;
     margin: auto;
+    padding: 0 7.25%;
+    width: 100%;
 }
 #app h1 {
-    font-size: 24px;
     border-bottom: 1px solid #ddd;
-    margin-bottom: 30px;
-    padding: 16px 0;
+    font-size: 22px;
+    margin: 0 auto;
+    padding: 0 0 18px;
+    text-align: center;
 }
 #app h1 > button {
     float: right;
@@ -23,6 +27,7 @@ body {
     font-size: 12px;
 }
 #app ul {
+    margin: 18px auto 0;
     padding: 0;
     list-style: none;
 }
@@ -33,11 +38,45 @@ body {
     text-decoration: line-through;
     color: #bbb;
 }
-#app input[type="text"] {
-    padding: 2px;
+#app form {
+    margin: 18px auto 0;
 }
-#app .btn_delete {
-    font-size: 12px;
+#app input[type="text"] {
+    border: solid 2px #777;
+    border-radius: 3px;
+    font-size: 16px;
+    height: 25px;
+    width: 60%;
+    padding: 5px 8px 6px;
+}
+#app .btn_block {
+    margin: 25px auto 0;
+}
+#app .txt {
+    margin: auto;
+}
+#app .txt-alert {
+    font-size: 17px;
+}
+#app .btn {
+    background: #ffffff;
+    display: inline-block;
+    padding: 8px 8px 7px;
+    text-decoration: none;
+    border-radius: 3px;
+    font-size: 14px;
+}
+#app .btn-delete {
+    font-size: 13px;
     cursor: pointer;
     color: #08c;
+}
+#app .btn-purge {
+    color: #EB8686;
+    border: double 2px #EB8686;
+}
+#app .btn-add {
+    color: #08c;
+    border: double 2px #08c;
+    margin-right: 10px;
 }

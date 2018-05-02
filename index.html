@@ -7,7 +7,7 @@
     <title>My Vue App</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body style="margin: 5% auto 0">
+<body>
     <!--
         メモ
         :{{ scriptが使える }}
@@ -18,40 +18,25 @@
     -->
     <div id="app" class="container">
         <h1 class="appName">
-            <button @click="purge">完了タスクを削除</button>
-            My Todos
+            Todo リスト
             <span class="numOfTask">（{{ remaining.length }}/{{ todos.length }}）</span>
         </h1>
-        <!-- 名前 -->
-        <div class="name_block">
-            <p class="name">My name is {{ name.toUpperCase() }}.</p>
-            <p><input type="text" v-model="name" placeholder="What's your name?"></p>
-        </div>
         <!-- タスク -->
-        <!-- 条件分岐を使った方法
-        <ul v-if="todos.length">
-            <li v-for="(todo, index) in todos">
-                <input type="checkbox" v-model="todo.is_done">
-                <span :class="{done: todo.is_done}">{{ todo.name }}</span>
-                <span @click="deleteTask(index)" class="btn_delete">[×]</span>
-            </li>
-        </ul>
-        <ul v-else>
-            <li>you have nothing to do!!</li>
-        </ul>
-        -->
         <ul>
-            <li v-show="!todos.length">you have nothing to do!!</li>
+            <li class="txt txt-alert" v-show="!todos.length">Nothing to do!!</li>
             <li v-for="(todo, index) in todos">
                 <input type="checkbox" v-model="todo.is_done">
                 <span :class="{done: todo.is_done}">{{ todo.name }}</span>
-                <span @click="deleteTask(index)" class="btn_delete">[×]</span>
+                <span @click="deleteTask(index)" class="btn-delete">[×]</span>
             </li>
         </ul>
         <form @submit.prevent="addTask">
-            <input type="text" v-model="task">
-            <input type="submit" value="Add">
+            <input class="txt" type="text" v-model="task">
         </form>
+        <div class="btn_block">
+            <button class="btn btn-add" @click="addTask">Todoを追加する</button>
+            <button class="btn btn-purge" @click="purge">完了したTodoを一斉削除</button>
+        </div>
     </div>
     <!-- Vue.js -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>

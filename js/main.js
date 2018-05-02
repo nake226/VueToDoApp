@@ -42,23 +42,25 @@
         // 関数
         methods: {
             // タスク追加
-            addTask: function(){
+            addTask(){
                 var newTask = {
                     name: this.task,
                     is_done: false
                 }
-                this.todos.push(newTask); 
+                if (this.task.length !== 0) {
+                    this.todos.push(newTask); 
+                }
                 // todoの追加後に入力欄を空にする
                 this.task = "";
             },
             // タスク削除
-            deleteTask: function(index){
-                if(confirm("you done?")){
+            deleteTask(index){
+                //if(confirm("you done?")){
                     this.todos.splice(index, 1);
-                }
+                //}
             },
             // 処理済みタスクの削除
-            purge: function(){
+            purge(){
                 if(!confirm('delete finished task?')){
                     return;
                 }
