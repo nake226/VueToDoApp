@@ -32,7 +32,7 @@ body {
     list-style: none;
 }
 #app li {
-    line-height: 2;
+    line-height: 2.5;
 }
 #app li > span.done {
     text-decoration: line-through;
@@ -48,6 +48,51 @@ body {
     height: 25px;
     width: 60%;
     padding: 5px 8px 6px;
+}
+#app input[type="checkbox"] {
+    -appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#app input[type="checkbox"] + span {
+    padding: 0 30px 0 0;
+    position: relative;
+}
+#app label {
+    position: relative;
+}
+#app input[type="checkbox"] + span::before {
+    background: transparent;
+    border: 2px #616161 solid;
+    border-radius: 3px;
+    content: "";
+    display: inline-block;
+    height: 17px;
+    width: 17px;
+    position: absolute;
+    top: 2px;
+    bottom: 0;
+    margin: auto;
+}
+#app input[type="checkbox"]:checked + span::before {
+    background: #616161;
+}
+#app input[type="checkbox"]:checked + span::after {
+    border: 2px solid #fff;
+    border-width: 0 2px 2px 0;
+    content: "";
+    display: inline-block;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    position: absolute;
+    top: 3px;
+    height: 10px;
+    width: 5px;
+    left: 7px;
 }
 #app .btn_block {
     margin: 25px auto 0;

@@ -25,7 +25,9 @@
         <ul>
             <li class="txt txt-alert" v-show="!todos.length">Nothing to do!!</li>
             <li v-for="(todo, index) in todos">
-                <input type="checkbox" v-model="todo.is_done">
+                <label>
+                    <input type="checkbox" v-model="todo.is_done"><span class="checkbox"></span>
+                </label>
                 <span :class="{done: todo.is_done}">{{ todo.name }}</span>
                 <span @click="deleteTask(index)" class="btn-delete">[×]</span>
             </li>
