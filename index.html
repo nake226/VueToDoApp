@@ -1,46 +1,36 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Vue App</title>
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>My Vue App</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <!--
-        メモ
-        :{{ scriptが使える }}
-        :v-model / v-forを「ディレクティブ」と呼ぶ
-         :checkboxはv-modelの値がtrueならcheckedになる
-         :<hoge v-bind:class="{fuga is_hego}></hoge>"
-         :「v-on:」は「@」として書くことができる
-    -->
-    <div id="app" class="container">
-        <h1 class="appName">
-            Todo リスト
-            <span class="numOfTask">（{{ remaining.length }}/{{ todos.length }}）</span>
-        </h1>
-        <!-- タスク -->
-        <ul>
-            <li class="txt txt-alert" v-show="!todos.length">Nothing to do!!</li>
-            <li v-for="(todo, index) in todos">
-                <label>
-                    <input type="checkbox" v-model="todo.is_done"><span class="checkbox"></span>
-                </label>
-                <span :class="{done: todo.is_done}">{{ todo.name }}</span>
-                <span @click="deleteTask(index)" class="btn-delete">[×]</span>
-            </li>
-        </ul>
-        <form @submit.prevent="addTask">
-            <input class="txt" type="text" v-model="task">
-        </form>
-        <div class="btn_block">
-            <button class="btn btn-add" @click="addTask">Todoを追加する</button>
-            <button class="btn btn-purge" @click="purge">完了したTodoを一斉削除</button>
-        </div>
+  <div id="app" class="container">
+    <h1 class="appName">
+      Todo リスト
+      <span class="numOfTask">（{{ remaining.length }}/{{ todos.length }}）</span>
+    </h1>
+    <ul>
+      <li class="txt txt-alert" v-show="!todos.length">Nothing to do!!</li>
+      <li v-for="(todo, index) in todos">
+        <label>
+          <input type="checkbox" v-model="todo.is_done"><span class="checkbox"></span>
+        </label>
+        <span :class="{done: todo.is_done}">{{ todo.name }}</span>
+        <span @click="deleteTask(index)" class="btn-delete">[×]</span>
+      </li>
+    </ul>
+      <form @submit.prevent="addTask">
+        <input class="txt" type="text" v-model="task">
+      </form>
+      <div class="btn_block">
+        <button class="btn btn-add" @click="addTask">Todoを追加する</button>
+        <button class="btn btn-purge" @click="purge">完了したTodoを一斉削除</button>
+      </div>
     </div>
-    <!-- Vue.js -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="js/main.js"></script>
 </body>
