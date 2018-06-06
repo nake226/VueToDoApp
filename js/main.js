@@ -10,7 +10,8 @@
         data: {
             name: "",
             task: "",
-            todos: []
+            todos: [],
+            weight: '70'
         },
         // 監視
         watch: {
